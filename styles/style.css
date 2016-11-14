@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: rgb(217, 217,217);
+    font-family: Zapf Chancery, cursive;
+}
+
+header{
+    position: relative;
+    border-radius: 3px 3px 0 0;
+    background-color: rgb(64,74,88);
+}
+
+header h1{
+    color: rgb(251, 99, 98);
+    text-align: center;
+    padding: 21px 1px 20px 0;
+}
+
+.blockNews{
+    position: relative;
+    min-height: 100px;
+    margin: 25px;
+    padding: 10px 0 10px 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.70);
+    background-color: white;
+}
+
+.image {
+    width: 225px;
+    height: 150px;
+    padding-right: 10px;
+    display: inline-block;
+}
+
+.blockDescription {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.title {
+    color: rgb(64,74,88);
+    font-size: 18px;
+    padding-bottom: 10px;
+}
+
+.description{
+    font-size: 16px;
+    color: rgb(77,77,77);
+    padding-bottom: 5px;
+}
+
+a {
+    font-size: 16px;
+    color: rgb(251, 99, 98);
+    text-decoration: none;
+}
+
+.datePublish{
+    position: absolute;
+    right:10px;
+    bottom: 10px;
+    font-size: 14px;
+    color: rgb(64,74,88);
+}
+
+.author{
+    font-size: 14px;
+    color: rgb(36, 41,49);
+    padding-top: 10px;
+    font-weight: bold;
+}
