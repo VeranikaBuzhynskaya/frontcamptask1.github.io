@@ -6,16 +6,19 @@ class Articles {
     render(){
         const apiKey = `ea0683d6cc144385987781ae61303c23`;
         const loader = new NewsLoader(this.requestLink, apiKey);
+        let news = document.getElementsByClassName('news').item(0);
+        const fragment = document.createDocumentFragment();
 
         loader.load().then(articles => {
             articles.forEach(article => {
-                this.createArticles(article);
+                fragment.appendChild(this.createArticles(article));
             });
+            news.appendChild(fragment);
         })
     }
 
     createArticles(article){
-        let blockNews = document.createElement('div');
+        let blockNews = document.createElement('article');
         blockNews.className = 'blockNews';
         document.body.appendChild(blockNews);
 
@@ -41,6 +44,7 @@ class Articles {
 
         let link = document.createElement('a');
         link.setAttribute('href', `${article.url}` );
+        link.className = 'readMore';
         link.innerHTML = 'Read more';
         blockDescription.appendChild(link);
 
@@ -53,5 +57,7 @@ class Articles {
         datePublish.className = 'datePublish';
         datePublish.innerHTML = `published: ${article.publishedAt}`;
         blockNews.appendChild(datePublish);
+
+        return blockNews;
     }
 }

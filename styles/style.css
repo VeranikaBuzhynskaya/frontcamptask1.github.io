@@ -8,22 +8,27 @@ body{
     font-family: Zapf Chancery, cursive;
 }
 
-header{
+.header, .footer{
     position: relative;
     border-radius: 3px 3px 0 0;
     background-color: rgb(64,74,88);
 }
 
-header h1{
+.header h1, .footer h2{
     color: rgb(251, 99, 98);
     text-align: center;
     padding: 21px 1px 20px 0;
 }
 
+.bbc{
+    font-style: italic;
+    color: rgb(251, 99, 98);
+}
+
 .blockNews{
     position: relative;
-    min-height: 100px;
-    margin: 25px;
+    max-width: 90%;
+    margin: 30px auto;
     padding: 10px 0 10px 10px;
     border-radius: 5px;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.70);
@@ -31,8 +36,8 @@ header h1{
 }
 
 .image {
-    width: 225px;
-    height: 150px;
+    width: 25%;
+    height: 20%;
     padding-right: 10px;
     display: inline-block;
 }
@@ -55,9 +60,12 @@ header h1{
 }
 
 a {
+    text-decoration: none;
+}
+
+.readMore{
     font-size: 16px;
     color: rgb(251, 99, 98);
-    text-decoration: none;
 }
 
 .datePublish{
@@ -73,4 +81,23 @@ a {
     color: rgb(36, 41,49);
     padding-top: 10px;
     font-weight: bold;
+}
+
+@media only screen and (max-width : 1140px){
+    .image {
+        width: 100%;
+        height: 100%;
+    }
+
+    .blockNews{
+        display: flex;
+        max-width: 70%;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .blockDescription {
+        padding-top: 10px;
+    }
 }
