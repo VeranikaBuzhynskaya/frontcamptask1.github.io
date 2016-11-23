@@ -1,0 +1,26 @@
+{
+  "name": "frontcamptask1",
+  "version": "1.0.0",
+  "description": "Click here https://veranikabuzhynskaya.github.io/frontcamptask1.github.io/ and you see the result of my work",
+  "main": "index.js",
+  "dependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-latest": "^6.16.0",
+    "whatwg-fetch": "^2.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VeranikaBuzhynskaya/frontcamptask1.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VeranikaBuzhynskaya/frontcamptask1.github.io/issues"
+  },
+  "homepage": "https://github.com/VeranikaBuzhynskaya/frontcamptask1.github.io#readme"
+}
