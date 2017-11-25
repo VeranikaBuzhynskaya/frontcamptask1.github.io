@@ -9,12 +9,25 @@
 <body>
 <header class="header">
     <h1>Current news</h1>
+    <div class="navbar">
+        <div>
+            <input type="radio" name="fetchBy" id="abc-news-au"/>
+            <label for="abc-news-au">ABC News</label>
+        </div>
+        <div>
+            <input type="radio" name="fetchBy" id="bbc-news" checked/>
+            <label for="bbc-news">BBC News</label>
+        </div>
+        <div>
+            <input type="radio" name="fetchBy" id="bbc-sport"/>
+            <label for="bbc-sport">BBC Sport</label>
+        </div>
+    </div>
 </header>
 <div class="news"></div>
 <footer class="footer">
-    <h2>Made by
+    Made by
         <a href="http://www.bbc.com/news" class="bbc">BBC News</a>
-    </h2>
 </footer>
 <script src="js/NewsLoader.js"></script>
 <script src="js/Articles.js"></script>
