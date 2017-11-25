@@ -4,20 +4,64 @@
 }
 
 body{
+    position: relative;
     background-color: rgb(217, 217,217);
     font-family: Zapf Chancery, cursive;
 }
 
-.header, .footer{
-    position: relative;
-    border-radius: 3px 3px 0 0;
-    background-color: rgb(64,74,88);
+/*   Header   */
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
 }
 
-.header h1, .footer h2{
+.header h1 {
+    display: inline-block;
+    padding-left: 20px;
+}
+
+.header, .footer{
+    border-radius: 3px 3px 0 0;
+    background-color: rgb(64,74,88);
     color: rgb(251, 99, 98);
-    text-align: center;
     padding: 21px 1px 20px 0;
+}
+
+/*  Navigation   */
+
+.navbar{
+    display: inline-flex;
+    flex-direction: row;
+    padding: 15px;
+    float: right;
+    clear: both;
+}
+
+.navbar input{
+    position: absolute;
+    left: -99999px;
+}
+
+.navbar label {
+    color: white;
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.navbar input[type=radio]:checked ~ label {
+    color: rgb(251, 99, 98);
+}
+
+/*  Main  */
+
+.news {
+    margin-top: 110px;
+    padding-bottom: 50px;
 }
 
 .bbc{
@@ -39,11 +83,10 @@ body{
     width: 25%;
     height: 20%;
     padding-right: 10px;
-    display: inline-block;
+    float: left;
 }
 
 .blockDescription {
-    display: inline-block;
     vertical-align: top;
 }
 
@@ -81,6 +124,15 @@ a {
     color: rgb(36, 41,49);
     padding-top: 10px;
     font-weight: bold;
+}
+
+/* Footer : todo sticky footer*/
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
 }
 
 @media only screen and (max-width : 1140px){
