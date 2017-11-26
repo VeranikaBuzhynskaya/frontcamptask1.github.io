@@ -1,11 +1,11 @@
 let news = document.getElementById('news');
-let sourcesNav = document.getElementsByClassName('dropdown-content').item(0);
+let sourcesNav = document.getElementById('dropdown-content');
 
 const source = new Sources();
 source.fetchSources(sourcesNav);
 
 const article = new Articles();
-article.fetchArticles(news, 'bbc-news');
+article.fetchArticles('bbc-news');
 
 document.getElementsByClassName('navbar')[0].addEventListener("click", function(e){
     if(e.target.id){
@@ -13,6 +13,6 @@ document.getElementsByClassName('navbar')[0].addEventListener("click", function(
             news.removeChild(news.lastChild);
         }
         const article = new Articles();
-        article.fetchArticles(news, e.target.id);
+        article.fetchArticles(e.target.id);
     }
 });

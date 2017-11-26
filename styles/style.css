@@ -74,7 +74,7 @@ body{
     color: darkred;
 }
 
-.dropdown-content {
+#dropdown-content {
     display: none;
     position: absolute;
     background-color: rgb(64,74,88);
@@ -85,7 +85,7 @@ body{
 }
 
 /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
+.dropdown:hover #dropdown-content {
     display: block;
 }
 
@@ -120,7 +120,7 @@ body{
 
 .blockNews{
     position: relative;
-    max-width: 90%;
+    width: 85%;
     display: table;
     margin: 30px auto;
     padding: 10px 0 10px 10px;

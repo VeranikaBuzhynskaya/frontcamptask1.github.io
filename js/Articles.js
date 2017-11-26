@@ -1,18 +1,30 @@
 class Articles {
     constructor(){
         this.apiKey = `ea0683d6cc144385987781ae61303c23`;
+        this.container = document.getElementById('news');
     }
 
-    fetchArticles(container, source){
+    fetchArticles(source){
         const loader = new NewsLoader(source,this.apiKey);
-        const fragment = document.createDocumentFragment();
 
-        loader.load().then(articles => {
-            articles.forEach(article => {
-                fragment.appendChild(this.createArticles(article)); // render больше подходит, т.к. тут отрисовываю
-            });
-            container.appendChild(fragment);
-        })
+        loader.load().then(this.render.bind(this));
+    }
+
+    render(articles){
+        const fragment = document.createDocumentFragment();
+        articles.forEach(article => {
+            fragment.appendChild(this.createArticles(article));
+        });
+        this.container.appendChild(fragment);
+    }
+
+    formatedDate(publishedAt){
+        if(publishedAt){
+            let newDate = new Date(publishedAt || Date.now() - new Date().getTimezoneOffset());
+            return newDate.toGMTString().split('G')[0];
+        } else {
+            return 'Indefined'
+        }
     }
 
     createArticles(article){
@@ -20,14 +32,18 @@ class Articles {
         blockNews.className = 'blockNews';
         document.body.appendChild(blockNews);
 
-        blockNews.innerHTML = `<img class="image" src= ${article.urlToImage} alt="News picture">
+        let { urlToImage, title, description, url, author = 'Current news portal', publishedAt} = article;
+
+        let datePublish = this.formatedDate(publishedAt);
+
+        blockNews.innerHTML = `<img class="image" src= ${urlToImage ? urlToImage : 'http://drpp-ny.org/wp-content/uploads/2014/07/sorry-image-not-available.png'} alt="News picture">
          <div class="blockDescription">
-            <h3 class="title">${article.title}<h3>
-            <p class="description">${article.description}<p>
-            <a class="readMore" href="${article.url}">Read more</a>
+            <h3 class="title">${title}</h3>
+            <p class="description">${description}</p>
+            <a class="readMore" href="${url}">Read more</a>
          <div>
-         <p class="author">Author: ${article.author}</p>
-         <span class="dataPublish">published: ${article.publishedAt}</span>`;
+         <p class="author">Author: ${author ? author : 'Current news portal' }</p>
+         <span class="datePublish">published: ${datePublish}</span>`;
 
         return blockNews;
     }
