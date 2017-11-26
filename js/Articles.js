@@ -1,19 +1,17 @@
 class Articles {
     constructor(){
-        this.requestLink = 'https://newsapi.org/v1/articles?source=bbc-news'; // for loader
+        this.apiKey = `ea0683d6cc144385987781ae61303c23`;
     }
 
-    render(){ // best get another name
-        const apiKey = `ea0683d6cc144385987781ae61303c23`;
-        const loader = new NewsLoader(this.requestLink, apiKey);
-        let news = document.getElementsByClassName('news').item(0); // best use id и передавать в article контейнер
+    fetchArticles(container, source){
+        const loader = new NewsLoader(source,this.apiKey);
         const fragment = document.createDocumentFragment();
 
         loader.load().then(articles => {
             articles.forEach(article => {
                 fragment.appendChild(this.createArticles(article)); // render больше подходит, т.к. тут отрисовываю
             });
-            news.appendChild(fragment);
+            container.appendChild(fragment);
         })
     }
 

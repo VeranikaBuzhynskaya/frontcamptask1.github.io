@@ -1,13 +1,17 @@
 'use strict';
 
 class NewsLoader {
-    constructor (link, apiKey) {
-        this.link = link;
-        this.apiKey = apiKey;
+    constructor (source, apiKey) {
+        this.source = source;
+        this.apiKey = apiKey || 0;
     };
 
     get requestLink() {
-        return `${this.link}&apiKey=${this.apiKey}`;
+        if(this.apiKey){
+            return `https://newsapi.org/v1/articles?source=${this.source}&apiKey=${this.apiKey}`;
+        } else {
+            return `https://newsapi.org/v1/sources`;
+        }
     };
 
     load() {
@@ -19,7 +23,7 @@ class NewsLoader {
                     return;
                 }
                 return response.json(); })
-            .then(data => data.articles)
+            .then(data => data.articles || data.sources)
             .catch(error => error);
     };
 }
