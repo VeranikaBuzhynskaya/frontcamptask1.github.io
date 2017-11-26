@@ -32,7 +32,7 @@ class Articles {
         blockNews.className = 'blockNews';
         document.body.appendChild(blockNews);
 
-        let { urlToImage, title, description, url, author = 'Current news portal', publishedAt} = article;
+        let {urlToImage, title, description, url, author = 'Current news portal', publishedAt} = article;
 
         let datePublish = this.formatedDate(publishedAt);
 
