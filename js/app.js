@@ -1,8 +1,7 @@
 let news = document.getElementById('news');
-let sourcesNav = document.getElementById('dropdown-content');
 
 const source = new Sources();
-source.fetchSources(sourcesNav);
+source.fetchSources();
 
 const article = new Articles();
 article.fetchArticles('bbc-news');
@@ -14,5 +13,7 @@ document.getElementsByClassName('navbar')[0].addEventListener("click", function(
         }
         const article = new Articles();
         article.fetchArticles(e.target.id);
+    } else{
+        document.getElementsByClassName('footer')[0].innerHTML = `Made by ${e.target.innerText}`;
     }
 });
