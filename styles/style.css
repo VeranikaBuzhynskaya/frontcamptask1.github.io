@@ -20,7 +20,8 @@ body{
 
 .header h1 {
     display: inline-block;
-    padding-left: 20px;
+    width: 80%;
+    text-align: center;
 }
 
 .header, .footer{
@@ -30,14 +31,62 @@ body{
     padding: 21px 1px 20px 0;
 }
 
-/*  Navigation   */
+/*  Navbar   */
 
-.navbar{
-    display: inline-flex;
-    flex-direction: row;
-    padding: 15px;
-    float: right;
-    clear: both;
+.navbar {
+    overflow: hidden;
+    background-color: rgb(251, 99, 98);
+    display: inline-block;
+    float: left;
+    margin-left: 15px;
+}
+
+.navbar .itemMenu {
+    text-align: center;
+    padding: 5px 5px;
+}
+
+.dropbtn::after{
+    content: '';
+    border: 5px solid transparent;
+    border-top: 5px solid white;
+    display: inline-block;
+    margin-left: 5px;
+    width: 0;
+    height: 0
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: darkred;
+}
+
+.navbar input[type=radio]~label:hover{
+    color: darkred;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgb(64,74,88);
+    height: 200px;
+    overflow: auto;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
 .navbar input{
@@ -59,7 +108,7 @@ body{
 
 /*  Main  */
 
-.news {
+#news {
     margin-top: 110px;
     padding-bottom: 50px;
 }
@@ -72,11 +121,14 @@ body{
 .blockNews{
     position: relative;
     max-width: 90%;
+    display: table;
     margin: 30px auto;
     padding: 10px 0 10px 10px;
     border-radius: 5px;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.70);
     background-color: white;
+    font-size: 0;
+    clear: both;
 }
 
 .image {
@@ -88,6 +140,7 @@ body{
 
 .blockDescription {
     vertical-align: top;
+    margin-left: 26%
 }
 
 .title {
@@ -134,8 +187,14 @@ a {
     width: 100%;
     text-align: center;
 }
+@media screen and (min-width: 800px) and (max-width : 1040px){
+    .image {
+        width: 35%;
+        height: 30%;
+    }
+}
 
-@media only screen and (max-width : 1140px){
+@media screen and (max-width : 800px){
     .image {
         width: 100%;
         height: 100%;
@@ -151,5 +210,6 @@ a {
 
     .blockDescription {
         padding-top: 10px;
+        margin-left: 0;
     }
 }
