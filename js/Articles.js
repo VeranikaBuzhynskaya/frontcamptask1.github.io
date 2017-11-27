@@ -4,10 +4,13 @@ class Articles {
         this.container = document.getElementById('news');
     }
 
+    showArticles(source){
+        this.fetchArticles(source).then(this.render.bind(this));
+    }
+
     fetchArticles(source){
         const loader = new NewsLoader(source,this.apiKey);
-
-        loader.load().then(this.render.bind(this));
+        return loader.load();
     }
 
     render(articles){

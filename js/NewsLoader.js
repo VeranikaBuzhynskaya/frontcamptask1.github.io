@@ -1,9 +1,9 @@
 'use strict';
 
 class NewsLoader {
-    constructor (source, apiKey) {
+    constructor (source, apiKey = 0) {
         this.source = source;
-        this.apiKey = apiKey || 0;
+        this.apiKey = apiKey;
     };
 
     get requestLink() {

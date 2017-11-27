@@ -1,10 +1,11 @@
 let news = document.getElementById('news');
+const defaultSource = 'bbc-news';
 
 const source = new Sources();
-source.fetchSources();
+source.showSources();
 
 const article = new Articles();
-article.fetchArticles('bbc-news');
+article.showArticles(defaultSource);
 
 document.getElementById('navbar').addEventListener("click", function(e){
     if(e.target.id){
@@ -12,7 +13,7 @@ document.getElementById('navbar').addEventListener("click", function(e){
             news.removeChild(news.lastChild);
         }
         const article = new Articles();
-        article.fetchArticles(e.target.id);
+        article.showArticles(e.target.id);
     } else{
         document.getElementById('footer').innerHTML = `Made by ${e.target.innerText}`;
     }

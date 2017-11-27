@@ -4,10 +4,13 @@ class Sources {
         this.container = document.getElementById('dropdown-content');
     }
 
-    fetchSources(container){
-        const loader = new NewsLoader();
+    showSources(){
+        this.fetchSources().then(sources => {this.render(sources)});
+    }
 
-        loader.load().then(this.render.bind(this));
+    fetchSources(){
+        const loader = new NewsLoader();
+        return loader.load();
     }
 
     render(sources){
