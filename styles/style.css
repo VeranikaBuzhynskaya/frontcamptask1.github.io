@@ -4,7 +4,9 @@
 }
 
 body{
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
     background-color: rgb(217, 217,217);
     font-family: Zapf Chancery, cursive;
 }
@@ -109,8 +111,8 @@ body{
 /*  Main  */
 
 #news {
-    margin-top: 110px;
-    padding-bottom: 50px;
+    margin-top: 90px;
+    flex: 1 0 auto;
 }
 
 .bbc{
@@ -182,11 +184,10 @@ a {
 /* Footer : todo sticky footer*/
 
 #footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+    flex: 0 0 auto;
     text-align: center;
 }
+
 @media screen and (min-width: 800px) and (max-width : 1040px){
     .image {
         width: 35%;
