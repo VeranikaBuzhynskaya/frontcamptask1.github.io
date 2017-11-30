@@ -7,20 +7,20 @@
     <title>FrontCamp ES6</title>
 </head>
 <body>
-<header class="header">
-    <h1>Current news</h1>
+<header id="header" class="header">
+    <h1>BBC News</h1>
     <div id="navbar" class="navbar">
         <div class="dropdown">
-            <button class="dropbtn">Menu</button>
-            <div id="dropdown-content">
+            <button class="dropbtn" onclick="handleMenu()">Menu</button>
+            <div id="dropdown-content" class="dropdown-content">
 
             </div>
         </div>
     </div>
 </header>
 <div id="news"></div>
-<footer id="footer">
-    Made by BBC News
+<footer class="footer">
+    Provided by <a href="https://newsapi.org/">newsapi.org</a>
 </footer>
 <script src="js/NewsLoader.js"></script>
 <script src="js/Articles.js"></script>
