@@ -140,7 +140,7 @@ body{
 
 .image {
     width: 25%;
-    height: 20%;
+    /*height: 20%;*/
     padding-right: 10px;
     float: left;
 }
