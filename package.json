@@ -4,21 +4,26 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "babel-cli": "^6.18.0",
     "babel-polyfill": "^6.16.0",
     "babel-preset-latest": "^6.16.0",
     "cash-fetch": "^0.1.0",
     "whatwg-fetch": "^2.0.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel js -d dist --presets es2015",
+    "watch": "babel js -d dist --presets es2015 -w"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/VeranikaBuzhynskaya/frontcamptask1.github.io.git"
   },
-  "author": "",
+  "author": "Veranika Buzhynskaya",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/VeranikaBuzhynskaya/frontcamptask1.github.io/issues"
