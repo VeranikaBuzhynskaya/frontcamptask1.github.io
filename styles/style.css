@@ -65,7 +65,7 @@ body{
     cursor: pointer;
     color: white;
     padding: 14px 16px;
-    background-color: inherit;
+    background-color: rgb(251, 99, 98);
 }
 
 .dropbtn:hover, .dropbtn:focus {
