@@ -2,11 +2,14 @@
   "name": "frontcamptask1",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "dependencies": {
     "babel-polyfill": "^6.16.0",
     "babel-preset-latest": "^6.16.0",
     "cash-fetch": "^0.1.0",
+    "copy": "^0.3.1",
+    "cp": "^0.2.0",
+    "postbuild": "^2.1.0",
     "whatwg-fetch": "^2.0.1"
   },
   "devDependencies": {
@@ -16,8 +19,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel js -d dist --presets es2015",
-    "watch": "babel js -d dist --presets es2015 -w"
+    "build": "babel js -d dist/js --presets es2015 && copyfiles styles/style.css dist",
+    "watch": "babel js -d dist/js --presets es2015 -w",
+    "postbuild": "postbuild -i index.html -o dist/index.html -c styles/ -j dist/js"
   },
   "repository": {
     "type": "git",
