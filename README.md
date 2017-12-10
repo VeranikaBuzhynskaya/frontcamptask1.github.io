@@ -2,6 +2,6 @@
 
 Click here https://veranikabuzhynskaya.github.io/frontcamptask1.github.io/ and you see the result of my work
 
-#### For task two (Babel):
+#### For task three (Webpack):
 1. npm run build;
-2. Run file index.html from the folder dist
+2. npm run start;

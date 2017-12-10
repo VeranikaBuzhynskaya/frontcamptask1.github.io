@@ -1,4 +1,6 @@
-class Articles {
+import NewsLoader from "./NewsLoader";
+
+export default class Articles {
     constructor(){
         this.apiKey = `ea0683d6cc144385987781ae61303c23`;
         this.container = document.getElementById('news');

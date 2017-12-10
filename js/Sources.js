@@ -1,4 +1,6 @@
-class Sources {
+import NewsLoader from "./NewsLoader";
+
+export default class Sources {
     constructor(){
         this.checkedSource = 'bbc-news';
         this.container = document.getElementById('dropdown-content');

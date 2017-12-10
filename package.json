@@ -4,25 +4,39 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
+    "babel-loader": "^7.1.2",
     "babel-polyfill": "^6.16.0",
     "babel-preset-latest": "^6.16.0",
     "cash-fetch": "^0.1.0",
-    "copy": "^0.3.1",
-    "cp": "^0.2.0",
     "postbuild": "^2.1.0",
     "whatwg-fetch": "^2.0.1"
   },
   "devDependencies": {
+    "autoprefixer": "^7.2.2",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "copyfiles": "^1.2.0"
+    "clean-webpack-plugin": "^0.1.17",
+    "copyfiles": "^1.2.0",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "html-webpack-plugin": "^2.30.1",
+    "node-sass": "^4.7.2",
+    "postcss-loader": "^2.0.9",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.0",
+    "uglifyjs-webpack-plugin": "^1.1.2",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7",
+    "webpack-merge": "^4.1.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel js -d dist/js --presets es2015 && copyfiles styles/style.css dist",
+    "build:old": "babel js -d dist/js --presets es2015 && copyfiles styles/style.css dist",
     "watch": "babel js -d dist/js --presets es2015 -w",
-    "postbuild": "postbuild -i index.html -o dist/index.html -c styles/ -j dist/js"
+    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
   },
   "repository": {
     "type": "git",

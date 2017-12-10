@@ -1,6 +1,16 @@
+import NewsLoader from "./NewsLoader";
+import Articles from "./Articles";
+import Sources from "./Sources";
+import '../styles/style.css';
+
 const news = document.getElementById('news');
 const defaultSource = 'bbc-news';
 const dropDownSources = document.getElementById('dropdown-content');
+const dropButton = document.getElementsByClassName('dropbtn')[0];
+
+if (process.env.NODE_ENV !== 'production') {
+    console.log('Looks like we are in development mode!');
+}
 
 const source = new Sources();
 source.showSources();
@@ -8,9 +18,9 @@ source.showSources();
 const article = new Articles();
 article.showArticles(defaultSource);
 
-function handleMenu() {
+dropButton.addEventListener("click", e => {
     dropDownSources.classList.toggle("show");
-}
+});
 
 dropDownSources.addEventListener("click", e => {
     if(e.target.id){
