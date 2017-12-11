@@ -1,6 +1,6 @@
-import NewsLoader from "./NewsLoader";
+import Service from "./Service";
 
-export default class Sources {
+export default class Source {
     constructor(){
         this.checkedSource = 'bbc-news';
         this.container = document.getElementById('dropdown-content');
@@ -11,7 +11,7 @@ export default class Sources {
     }
 
     fetchSources(){
-        const loader = new NewsLoader();
+        const loader = new Service();
         return loader.load();
     }
 

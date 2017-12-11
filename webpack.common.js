@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
@@ -7,16 +8,20 @@ const autoprefixer = require('autoprefixer')();
 
 
 module.exports = {
-    entry: './js/app.js',
+    entry: {
+      // index: './js/app.js',
+      another: './js/load-button.js'
+    },
     output: {
         path: __dirname + '/public',
-        filename: 'bundle.js'
+        filename: '[name].bundle.js',
+        chunkFilename: '[name].bundle.js',
     },
     module: {
         rules: [
           {
             test: /\.js$/,
-            exclude: /(node_modules)/,
+            exclude: /(node_modules|load-button)/,
             use: {
               loader: 'babel-loader',
               options: {
@@ -45,6 +50,14 @@ module.exports = {
                 options: {
                   limit: 8192
                 }
+              }
+            ]
+          },
+          {
+            test: /\.json$/,
+            use: [
+              {
+                loader: path.resolve('./js/loader.js')
               }
             ]
           }

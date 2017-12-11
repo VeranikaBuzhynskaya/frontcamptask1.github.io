@@ -1,7 +1,8 @@
-import NewsLoader from "./NewsLoader";
-import Articles from "./Articles";
-import Sources from "./Sources";
+import service from "./Service";
+import Article from "./Article";
+import Source from "./Source";
 import '../styles/style.css';
+import './test.json';
 
 const news = document.getElementById('news');
 const defaultSource = 'bbc-news';
@@ -12,10 +13,10 @@ if (process.env.NODE_ENV !== 'production') {
     console.log('Looks like we are in development mode!');
 }
 
-const source = new Sources();
+const source = new Source();
 source.showSources();
 
-const article = new Articles();
+const article = new Article();
 article.showArticles(defaultSource);
 
 dropButton.addEventListener("click", e => {
@@ -24,10 +25,10 @@ dropButton.addEventListener("click", e => {
 
 dropDownSources.addEventListener("click", e => {
     if(e.target.id){
-        while (news.lastChild) {
+        while (news.lastChild) {``
             news.removeChild(news.lastChild);
         }
-        const article = new Articles();
+        const article = new Article();
         article.showArticles(e.target.id);
     } else if(e.target.nodeName === "LABEL"){
         document.getElementById('header').querySelector('h1').innerHTML = `${e.target.textContent}`;

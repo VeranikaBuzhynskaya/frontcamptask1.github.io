@@ -1,6 +1,6 @@
-import NewsLoader from "./NewsLoader";
+import Service from "./Service";
 
-export default class Articles {
+export default class Article {
     constructor(){
         this.apiKey = `ea0683d6cc144385987781ae61303c23`;
         this.container = document.getElementById('news');
@@ -11,7 +11,7 @@ export default class Articles {
     }
 
     fetchArticles(source){
-        const loader = new NewsLoader(source,this.apiKey);
+        const loader = new Service(source,this.apiKey);
         return loader.load();
     }
 

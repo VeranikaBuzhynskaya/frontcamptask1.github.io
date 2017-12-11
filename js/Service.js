@@ -1,6 +1,6 @@
 'use strict';
 
-export default class NewsLoader {
+export default class Service {
     constructor (source, apiKey = 0) {
         this.source = source;
         this.apiKey = apiKey;
