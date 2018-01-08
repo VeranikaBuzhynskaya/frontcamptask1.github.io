@@ -1,9 +1,16 @@
 import Service from "./Service";
 
-export default class Source {
+let instance = null;
+
+class Source {
     constructor(){
+        if(!instance){
+            instance = this;
+        }
         this.checkedSource = 'bbc-news';
         this.container = document.getElementById('dropdown-content');
+
+        return instance;
     }
 
     showSources(){
@@ -39,4 +46,19 @@ export default class Source {
         }
         return itemMenu;
     }
+
+    updateCheckedSource(newCheckedSource){
+        this.checkedSource = newCheckedSource;
+        return true;
+    }
 }
+
+export default class SourceProxy extends Source {
+    updateCheckedSource(newCheckedSource) {
+        if (newCheckedSource && this.checkedSource !== newCheckedSource) {
+            return super.updateCheckedSource(newCheckedSource);
+        }
+        return false;
+    }
+}
+

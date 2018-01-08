@@ -38,7 +38,7 @@ export default class Article {
         document.body.appendChild(blockNews);
 
         let {urlToImage, title, description, url, author = 'Current news portal', publishedAt} = article;
-        console.log("EEEEEEEEEE");
+
         let datePublish = this.formatedDate(publishedAt);
 
         blockNews.innerHTML = `<img class="image" src= ${urlToImage ? urlToImage : 'http://drpp-ny.org/wp-content/uploads/2014/07/sorry-image-not-available.png'} alt="News picture">

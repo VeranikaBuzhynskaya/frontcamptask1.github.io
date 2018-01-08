@@ -1,6 +1,7 @@
 import service from "./Service";
 import Article from "./Article";
 import Source from "./Source";
+import InformationFactory from "./InformationFactory";
 import '../styles/style.css';
 import './test.json';
 
@@ -13,10 +14,12 @@ if (process.env.NODE_ENV !== 'production') {
     console.log('Looks like we are in development mode!');
 }
 
-const source = new Source();
+const typeInformation = new InformationFactory();
+const source = typeInformation.create('source');
+const article = typeInformation.create('article');
+
 source.showSources();
 
-const article = new Article();
 article.showArticles(defaultSource);
 
 dropButton.addEventListener("click", e => {
@@ -25,11 +28,13 @@ dropButton.addEventListener("click", e => {
 
 dropDownSources.addEventListener("click", e => {
     if(e.target.id){
-        while (news.lastChild) {``
-            news.removeChild(news.lastChild);
-        }
-        const article = new Article();
-        article.showArticles(e.target.id);
+        if (source.updateCheckedSource(e.target.id)){
+            while (news.lastChild) {``
+                news.removeChild(news.lastChild);
+            }
+            const article = new Article();
+            article.showArticles(e.target.id);
+        }    
     } else if(e.target.nodeName === "LABEL"){
         document.getElementById('header').querySelector('h1').innerHTML = `${e.target.textContent}`;
         dropDownSources.classList.remove('show');
