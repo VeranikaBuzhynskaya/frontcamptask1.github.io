@@ -1,4 +1,4 @@
 {
-  "presets": ["es2015", "env"],
-  "plugins": ["./babel-plugin"]
+  "presets": ["es2015", "env"]
+  // "plugins": ["./babel-plugin"]
 }

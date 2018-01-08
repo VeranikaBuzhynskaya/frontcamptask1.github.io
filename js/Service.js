@@ -4,6 +4,7 @@ export default class Service {
     constructor (source, apiKey = 0) {
         this.source = source;
         this.apiKey = apiKey;
+        this.load = this.loggingDecorator(this.load);
     };
 
     get requestLink() {
@@ -26,6 +27,15 @@ export default class Service {
             .then(data => data.articles || data.sources)
             .catch(error => error);
     };
+
+    loggingDecorator(wrapped){
+        return function() {
+            console.log('Starting');
+            const result = wrapped.apply(this, arguments);
+            console.log('Finished');
+            return result;
+        }
+    }
 }
 
 
