@@ -1,6 +1,7 @@
 import service from "./Service";
 import Article from "./Article";
 import Source from "./Source";
+import EventObserver from "./Observer";
 import InformationFactory from "./InformationFactory";
 import '../styles/style.css';
 import './test.json';
@@ -22,11 +23,9 @@ source.showSources();
 
 article.showArticles(defaultSource);
 
-dropButton.addEventListener("click", e => {
-    dropDownSources.classList.toggle("show");
-});
+const blogObserver = new EventObserver(dropDownSources);
 
-dropDownSources.addEventListener("click", e => {
+blogObserver.subscribe(e => {
     if(e.target.id){
         if (source.updateCheckedSource(e.target.id)){
             while (news.lastChild) {``
@@ -34,11 +33,16 @@ dropDownSources.addEventListener("click", e => {
             }
             const article = new Article();
             article.showArticles(e.target.id);
-        }    
+        
+        }   
     } else if(e.target.nodeName === "LABEL"){
         document.getElementById('header').querySelector('h1').innerHTML = `${e.target.textContent}`;
         dropDownSources.classList.remove('show');
     }
+});
+
+dropButton.addEventListener("click", e => {
+    dropDownSources.classList.toggle("show");
 });
 
 document.addEventListener("click", e => {
