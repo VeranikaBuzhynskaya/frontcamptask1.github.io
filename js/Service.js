@@ -30,9 +30,9 @@ export default class Service {
 
     loggingDecorator(wrapped){
         return function() {
-            console.log('Starting');
+            console.log('Starting loading');
             const result = wrapped.apply(this, arguments);
-            console.log('Finished');
+            console.log('Finished loading');
             return result;
         }
     }
