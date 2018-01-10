@@ -37,6 +37,7 @@ body{
 /*  Navbar   */
 
 .navbar {
+    opacity: 0;
     background-color: rgb(251, 99, 98);
     display: inline-block;
     position: relative;
