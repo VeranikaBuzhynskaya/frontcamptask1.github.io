@@ -1,6 +1,6 @@
-import service from "./Service";
-import Article from "./Article";
-import Source from "./Source";
+import service from "./serviceCommand/Service";
+import Article from "./modals/Article";
+import Source from "./modals/Source";
 import EventSourceObserver from "./Observer";
 import '../styles/style.css';
 import './test.json';

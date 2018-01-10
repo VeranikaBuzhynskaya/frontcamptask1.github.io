@@ -1,5 +1,5 @@
-import Service from "./Service";
-import commandFactory from "./CommandFactory";
+import Service from "../serviceCommand/Service";
+import commandFactory from "../serviceCommand/CommandFactory";
 
 export default class Article {
     constructor(){
