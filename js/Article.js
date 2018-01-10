@@ -1,8 +1,8 @@
 import Service from "./Service";
+import commandFactory from "./CommandFactory";
 
 export default class Article {
     constructor(){
-        this.apiKey = `ea0683d6cc144385987781ae61303c23`;
         this.container = document.getElementById('news');
     }
 
@@ -11,7 +11,8 @@ export default class Article {
     }
 
     fetchArticles(source){
-        const loader = new Service(source,this.apiKey);
+        // const loader = new Service(source,this.apiKey);
+        const loader = commandFactory.getCommandRequest('article', source);
         return loader.load();
     }
 

@@ -1,4 +1,4 @@
-export default class EventObserver {
+export default class EventSourceObserver {
     constructor(dropDownSources) {
         this.observers = [];
         dropDownSources.addEventListener("click", e => {

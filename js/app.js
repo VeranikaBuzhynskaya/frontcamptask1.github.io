@@ -1,29 +1,26 @@
 import service from "./Service";
 import Article from "./Article";
 import Source from "./Source";
-import EventObserver from "./Observer";
-import InformationFactory from "./InformationFactory";
+import EventSourceObserver from "./Observer";
 import '../styles/style.css';
 import './test.json';
 
 const news = document.getElementById('news');
 const defaultSource = 'bbc-news';
 const dropDownSources = document.getElementById('dropdown-content');
-const dropButton = document.getElementsByClassName('dropbtn')[0];
+const dropButton = document.getElementById('dropbtn');
 
 if (process.env.NODE_ENV !== 'production') {
     console.log('Looks like we are in development mode!');
 }
 
-const typeInformation = new InformationFactory();
-const source = typeInformation.create('source');
-const article = typeInformation.create('article');
+const source = new Source();
+const article = new Article();
 
 source.showSources();
-
 article.showArticles(defaultSource);
 
-const blogObserver = new EventObserver(dropDownSources);
+const blogObserver = new EventSourceObserver(dropDownSources);
 
 blogObserver.subscribe(e => {
     if(e.target.id){

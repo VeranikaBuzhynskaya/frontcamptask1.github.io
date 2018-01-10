@@ -1,4 +1,5 @@
 import Service from "./Service";
+import commandFactory from "./CommandFactory";
 
 let instance = null;
 
@@ -18,7 +19,7 @@ class Source {
     }
 
     fetchSources(){
-        const loader = new Service();
+        const loader = commandFactory.getCommandRequest('source');
         return loader.load();
     }
 

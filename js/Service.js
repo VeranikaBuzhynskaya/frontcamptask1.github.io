@@ -1,18 +1,12 @@
 'use strict';
 
 export default class Service {
-    constructor (source, apiKey = 0) {
-        this.source = source;
-        this.apiKey = apiKey;
+    constructor () {
         this.load = this.loggingDecorator(this.load);
     };
 
     get requestLink() {
-        if(this.apiKey){
-            return `https://newsapi.org/v1/articles?source=${this.source}&apiKey=${this.apiKey}`;
-        } else {
-            return `https://newsapi.org/v1/sources`;
-        }
+        
     };
 
     load() {
@@ -24,8 +18,6 @@ export default class Service {
                     return;
                 }
                 return response.json(); })
-            .then(data => data.articles || data.sources)
-            .catch(error => error);
     };
 
     loggingDecorator(wrapped){
