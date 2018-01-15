@@ -1,6 +1,7 @@
 import service from "./serviceCommand/Service";
 import Article from "./modals/Article";
 import Source from "./modals/Source";
+import Store from "./store/store";
 import EventSourceObserver from "./Observer";
 import '../styles/style.css';
 import './test.json';
@@ -14,6 +15,7 @@ if (process.env.NODE_ENV !== 'production') {
     console.log('Looks like we are in development mode!');
 }
 
+const store = new Store();
 const source = new Source();
 const article = new Article();
 
