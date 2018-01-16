@@ -1,4 +1,4 @@
-export default (midleware) =>
+export default (...midlewares) =>
 createStore =>
     reducer => {
         const store = createStore(reducer);

@@ -1,14 +1,18 @@
 import createStore from './redux/createStore';
 import applyMiddleware from './redux/applyMiddleware';
 import thunkMiddleware from './redux/redux-thunk';
+import {createLogger} from './redux/redux-logger';
 import rootReducer from '../reducers/rootReducer'
+
+const loggerMiddleware = createLogger();
 
 export default class Store{
     constructor() {
         this.store = createStore(
             rootReducer,
             applyMiddleware(
-                thunkMiddleware
+                thunkMiddleware,
+                loggerMiddleware
             )
         );
     }

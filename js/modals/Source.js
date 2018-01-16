@@ -1,14 +1,17 @@
 import Service from "../serviceCommand/Service";
 import commandFactory from "../serviceCommand/CommandFactory";
+// import ActionService from "../actions/actionsService";
+// import {ACTION_TYPES} from "../actions/actionTypes";
 
 let instance = null;
 
 class Source {
-    constructor(){
+    constructor(store){
         if(!instance){
             instance = this;
         }
-        this.checkedSource = 'bbc-news';
+        this.store = store;
+        this.checkedSource = store.checkedSource;
         this.container = document.getElementById('dropdown-content');
 
         return instance;

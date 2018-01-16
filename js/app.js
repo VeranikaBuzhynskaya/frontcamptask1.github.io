@@ -2,6 +2,7 @@ import service from "./serviceCommand/Service";
 import Article from "./modals/Article";
 import Source from "./modals/Source";
 import Store from "./store/store";
+import { checkedSource } from "./actions/actions";
 import EventSourceObserver from "./Observer";
 import '../styles/style.css';
 import './test.json';
@@ -16,7 +17,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const store = new Store();
-const source = new Source();
+const source = new Source(store);
 const article = new Article();
 
 source.showSources();
@@ -36,6 +37,7 @@ blogObserver.subscribe(e => {
         }   
     } else if(e.target.nodeName === "LABEL"){
         document.getElementById('header').querySelector('h1').innerHTML = `${e.target.textContent}`;
+        store.store.dispatch(checkedSource(e.target.textContent));
         dropDownSources.classList.remove('show');
     }
 });
