@@ -72,7 +72,7 @@ body{
 
 .load-button{
     font-size: 16px;
-    margin-top: 110px;
+    margin-top: 20px;
     border: none;
     cursor: pointer;
     color: white;
@@ -127,9 +127,9 @@ body{
 
 /*  Main  */
 
-#news {
+.news {
+    text-align: center;
     margin-top: 90px;
-    margin: 0 auto;
     flex: 1 0 auto;
 }
 
