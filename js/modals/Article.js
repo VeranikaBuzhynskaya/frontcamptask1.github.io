@@ -2,11 +2,13 @@ import Service from "../serviceCommand/Service";
 import commandFactory from "../serviceCommand/CommandFactory";
 
 export default class Article {
-    constructor(){
+    constructor(store){
+        this.store = store;
         this.container = document.getElementById('news');
     }
 
-    showArticles(source){
+    showArticles(){
+        let source = this.store.store.getState().checkedSource;
         this.fetchArticles(source).then(this.render.bind(this));
     }
 

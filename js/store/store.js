@@ -21,7 +21,6 @@ export default class Store{
         this.store.subscribe(onChange);
     }
     
-    
     dispatch(action) {
         this.store.dispatch(action);
     }

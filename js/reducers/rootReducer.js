@@ -10,11 +10,7 @@ export default function news(state=defaultState, action) {
         case ACTION_TYPES.SELECT_SOURCE: {
             return Object.assign({}, state, 
                 { 
-                    checkedSource: action.sourceName
-                    // checkedSource: {
-                    //     sourceName: action.sourceName,
-                    //     sourceId: action.sourceId
-                    // } 
+                    checkedSource: action.sourceID
                 });
         }
         case ACTION_TYPES.RECEIVE_NEWS: {

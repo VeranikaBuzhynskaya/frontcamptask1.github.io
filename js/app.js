@@ -8,7 +8,6 @@ import '../styles/style.css';
 import './test.json';
 
 const news = document.getElementById('news');
-const defaultSource = 'bbc-news';
 const dropDownSources = document.getElementById('dropdown-content');
 const dropButton = document.getElementById('dropbtn');
 
@@ -18,10 +17,10 @@ if (process.env.NODE_ENV !== 'production') {
 
 const store = new Store();
 const source = new Source(store);
-const article = new Article();
+const article = new Article(store);
 
 source.showSources();
-article.showArticles(defaultSource);
+article.showArticles();
 
 const blogObserver = new EventSourceObserver(dropDownSources);
 
@@ -31,13 +30,13 @@ blogObserver.subscribe(e => {
             while (news.lastChild) {``
                 news.removeChild(news.lastChild);
             }
-            const article = new Article();
-            article.showArticles(e.target.id);
+            const article = new Article(store);
+            store.store.dispatch(checkedSource(e.target.id));
+            article.showArticles();
         
         }   
     } else if(e.target.nodeName === "LABEL"){
         document.getElementById('header').querySelector('h1').innerHTML = `${e.target.textContent}`;
-        store.store.dispatch(checkedSource(e.target.textContent));
         dropDownSources.classList.remove('show');
     }
 });

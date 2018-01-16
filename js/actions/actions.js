@@ -5,5 +5,5 @@ import ActionService from "./actionsService";
 
 export const checkedSource = name => ({
     type: ACTION_TYPES.SELECT_SOURCE,
-    sourceName: name,
+    sourceID: name,
 });
